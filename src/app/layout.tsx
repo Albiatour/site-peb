@@ -29,11 +29,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-green-50`}
       >
-        {/* Mobile header only */}
-        <div className="md:hidden">
-          <HeaderMobile />
-        </div>
-        {/* Desktop content plus mobile content with bottom padding for sticky CTA */}
+        <HeaderMobile />
         <div className="pb-20 md:pb-0">{children}</div>
       </body>
     </html>
