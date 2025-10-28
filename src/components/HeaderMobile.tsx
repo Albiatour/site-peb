@@ -33,15 +33,20 @@ export default function HeaderMobile() {
     }
   }, [open]);
 
-  const links: Array<{ href: string; label: string }> = [
-    { href: "/", label: "Accueil" },
-    { href: "/services", label: "Services PEB" },
-    { href: "/tarifs", label: "Tarifs" },
-    { href: "/zones", label: "Zones desservies" },
-    { href: "/a-propos", label: "À propos" },
-    { href: "/faq", label: "FAQ" },
-    { href: "/contact", label: "Contact" },
+  const NAV_ITEMS = [
+    { label: "Accueil", href: "/" },
+    { label: "Services", href: "/services" },
+    { label: "À propos", href: "/a-propos" },
+    { label: "Contact", href: "/contact" },
+    { label: "Blog", href: "/blog" },
   ];
+
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+    return pathname === href || pathname.startsWith(href + "/");
+  };
 
   const whatsappUrl = "https://wa.me/32XXXXXXXXX?text=Bonjour%20je%20souhaite%20un%20certificat%20PEB"; // TODO: remplacer par numéro réel
   const telHref = "tel:+32XXXXXXXX"; // TODO: remplacer par numéro réel
@@ -117,23 +122,20 @@ export default function HeaderMobile() {
               </div>
               {/* Links */}
               <nav className="divide-y divide-slate-200 border-t border-b border-slate-200">
-                {links.map((l, idx) => {
-                  const active = pathname === l.href;
-                  const common = "flex items-center justify-between py-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600/30 hover:bg-slate-50";
+                {NAV_ITEMS.map((item, idx) => {
+                  const active = isActive(item.href);
                   return (
                     <Link
-                      key={l.href}
+                      key={item.href}
                       ref={idx === 0 ? firstLinkRef : undefined}
-                      href={l.href}
-                      className={common + " px-1 text-lg font-medium " + (active ? "text-green-700" : "text-slate-800")}
+                      href={item.href}
+                      className={
+                        "block w-full py-3 text-lg border-b last:border-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600/30 hover:bg-slate-50 " +
+                        (active ? "text-emerald-700 font-semibold" : "text-slate-800")
+                      }
                       onClick={() => setOpen(false)}
                     >
-                      <span>{l.label}</span>
-                      {active ? (
-                        <span className="ml-3 inline-block h-2 w-2 rounded-full bg-green-600" aria-hidden />
-                      ) : (
-                        <span className="ml-3 inline-block h-2 w-2 rounded-full bg-transparent" aria-hidden />
-                      )}
+                      {item.label}
                     </Link>
                   );
                 })}
@@ -141,7 +143,7 @@ export default function HeaderMobile() {
             </div>
 
             {/* Actions rapides */}
-            <div className="mt-6 space-y-3">
+            <div className="pt-2 mt-2 border-t space-y-3">
               <a
                 href={whatsappUrl}
                 className="inline-flex w-full h-12 items-center justify-center rounded-full bg-green-600 text-white font-semibold shadow-sm hover:bg-green-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600/30"
