@@ -3,22 +3,6 @@ import Link from "next/link";
 export default function Blog() {
   return (
     <div className="min-h-screen">
-      {/* Navigation */}
-      <nav className="bg-white border-b border-green-100">
-        <div className="max-w-5xl mx-auto px-6 py-4">
-          <div className="flex justify-between items-center">
-            <Link href="/" className="text-xl font-semibold text-green-900">PEB Wallonie</Link>
-            <div className="flex gap-6">
-              <Link href="/" className="text-gray-700 hover:text-green-700 underline">Accueil</Link>
-              <Link href="/services" className="text-gray-700 hover:text-green-700 underline">Services</Link>
-              <Link href="/a-propos" className="text-gray-700 hover:text-green-700 underline">À propos</Link>
-              <Link href="/contact" className="text-gray-700 hover:text-green-700 underline">Contact</Link>
-              <Link href="/blog" className="text-gray-700 hover:text-green-700 underline">Blog</Link>
-            </div>
-          </div>
-        </div>
-      </nav>
-
       <main className="max-w-5xl mx-auto px-6 py-16">
         <h1 className="text-4xl font-bold text-green-900 mb-12">
           Guides PEB

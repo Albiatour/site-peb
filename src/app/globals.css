@@ -33,3 +33,10 @@ body {
 .card h2 {
   @apply text-green-800 font-semibold mb-2;
 }
+
+@media (min-width: 768px) {
+  div[data-variant="mobile"] { display: none !important; }
+}
+@media (max-width: 767px) {
+  div[data-variant="desktop"] { display: none !important; }
+}
