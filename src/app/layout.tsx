@@ -30,8 +30,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-green-50`}
       >
-        <HeaderMobile />
-        <NavDesktop />
+        <div className="md:hidden">
+          <HeaderMobile />
+        </div>
+        <div className="hidden md:block">
+          <NavDesktop />
+        </div>
         <div className="pb-20 md:pb-0">{children}</div>
       </body>
     </html>
