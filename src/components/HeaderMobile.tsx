@@ -95,7 +95,7 @@ export default function HeaderMobile() {
   return (
     <>
       {/* Barre supérieure fixe (mobile uniquement) */}
-      <div className="md:hidden fixed top-0 inset-x-0 z-40 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 border-b">
+      <div className="md:hidden fixed top-0 inset-x-0 z-40 bg-white md:border-b">
         <div className="h-14 px-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2" aria-label="Accueil">
             <div className="h-7 w-7 rounded-full bg-emerald-100 flex items-center justify-center">
@@ -111,7 +111,7 @@ export default function HeaderMobile() {
             <a
               href={PHONE_TEL}
               aria-label="Appeler"
-              className="h-10 w-10 rounded-full border flex items-center justify-center hover:bg-slate-50 focus:outline-none focus-visible:outline-none"
+              className="h-10 w-10 rounded-full border flex items-center justify-center hover:bg-slate-50 focus:outline-none focus-visible:outline-none text-emerald-800 hover:text-emerald-900 active:text-emerald-900"
             >
               <PhoneIcon />
             </a>
@@ -120,7 +120,7 @@ export default function HeaderMobile() {
               onClick={openDrawer}
               aria-label="Ouvrir le menu"
               aria-expanded={open}
-              className="h-10 w-10 rounded-full border flex items-center justify-center hover:bg-slate-50 focus:outline-none focus-visible:outline-none"
+              className="h-10 w-10 rounded-full border flex items-center justify-center hover:bg-slate-50 focus:outline-none focus-visible:outline-none text-emerald-800 hover:text-emerald-900 active:text-emerald-900"
             >
               <BurgerIcon />
             </button>
@@ -180,7 +180,7 @@ export default function HeaderMobile() {
                     "block w-full py-3 text-lg text-slate-800",
                     // Pas de carré : pas de ring/outline; focus visible = underline légère
                     "focus:outline-none focus-visible:outline-none focus-visible:ring-0 focus-visible:bg-slate-50 focus-visible:underline underline-offset-4",
-                    isActive(item.href) ? "text-emerald-700 font-semibold" : "border-b last:border-0",
+                    isActive(item.href) ? "text-emerald-800 font-semibold" : "border-b last:border-0",
                   ].join(" ")}
                 >
                   {item.label}
