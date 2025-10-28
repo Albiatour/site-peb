@@ -95,7 +95,7 @@ export default function HeaderMobile() {
   return (
     <>
       {/* Barre supérieure fixe (mobile uniquement) */}
-      <div className="md:hidden fixed top-0 inset-x-0 z-40 bg-white md:border-b">
+      <div className="md:hidden fixed top-0 inset-x-0 z-40 bg-white">
         <div className="h-14 px-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2" aria-label="Accueil">
             <div className="h-7 w-7 rounded-full bg-emerald-100 flex items-center justify-center">

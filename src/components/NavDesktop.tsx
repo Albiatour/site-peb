@@ -19,7 +19,7 @@ export default function NavDesktop() {
   };
 
   return (
-    <nav className="bg-white md:border-b border-green-100 hidden md:block">
+    <nav className="bg-white border-b border-green-100 hidden md:block">
       <div className="max-w-5xl mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           <Link href="/" className="text-xl font-semibold text-green-900">
